@@ -24,3 +24,4 @@ module Omam
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
+Mongoid.load!("#{Rails.root}/config/mongoid.yml", Rails.env)

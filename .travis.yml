@@ -1,7 +1,5 @@
 language: ruby
-rvm:
-	- 2.2.1
-env:
-	- DB=mongodb
+rvm: 2.2.1
+env: DB=omam
 install:
   - bundle install

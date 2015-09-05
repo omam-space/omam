@@ -48,3 +48,5 @@ end
 
 gem 'carrierwave-video'
 gem 'videojs_rails'
+
+gem 'mongoid'
