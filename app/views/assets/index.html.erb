@@ -1,0 +1,8 @@
+<h1><%= t('asset.upload.title') %></h1>
+
+<%= form_for @asset do |f| %>
+  <%= f.file_field :file %>
+  <%= f.submit t('asset.upload.send') %>
+<% end %>
+
+<hr>
