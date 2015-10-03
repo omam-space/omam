@@ -4,7 +4,7 @@ class Volume
   field :address, type: String
 
   validates :label, presence: true, uniqueness: true
-  validates :label, presence: true
+  validates :address, presence: true
 
   def exists?
     File.exists? self.address

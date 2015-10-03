@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Volume, type: :model do
   before(:each) do
+    Volume.delete_all
     @volume = FactoryGirl.build(:volume)
   end
 
