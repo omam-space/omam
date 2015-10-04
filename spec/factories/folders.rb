@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :folder do
-    name "MyString"
-folder nil
+    name Faker::Lorem.word
   end
 
 end
