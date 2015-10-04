@@ -23,7 +23,7 @@ class Volume
   end
 
   def remove_volume
-    unless File.exist?(self.address)
+    if File.exist?(self.address)
       FileUtils.rm_rf(self.address)
     end
   end
