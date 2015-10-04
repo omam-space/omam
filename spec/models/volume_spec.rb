@@ -18,7 +18,8 @@ RSpec.describe Volume, type: :model do
     expect(@volume.errors.messages).not_to be_empty
   end
 
-  it "A Volume needs to represent a valid partition in storage" do
-    expect(@volume.exists?).to be true
+  it "A Volume must be created if it doens't exists yet" do
+    expect(@volume.save).to be true
+    expect(File.exists?(@volume.address)).to be true
   end
 end
