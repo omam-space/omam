@@ -4,13 +4,10 @@ class VolumesController < ApplicationController
   # GET /volumes
   def index
     @volumes = Volume.all
-
-    render json: @volumes
   end
 
   # GET /volumes/1
   def show
-    render json: @volume
   end
 
   # GET /volumes/new
