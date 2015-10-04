@@ -1,8 +1,10 @@
 class Folder
   include Mongoid::Document
+
   field :name, type: String
 
   before_save :create_folder
+  before_update :update_folder
   before_destroy :remove_folder
 
   belongs_to :parent, class_name: 'Folder'
@@ -18,15 +20,29 @@ class Folder
   end
 
   def remove_folder
-    unless File.exist?(path)
-      FileUtils.rm_rf(path)
-    end
+    FileUtils.rm_rf(path)
+  end
+
+  def update_folder
+    # old_folder = Folder.find(self.id)
+    # FileUtils.mv(old_folder.path, self.path)
   end
 
   def path
-    if self.parent
-      self.volume.address + "/" + self.parent.name + "/" + self.name
+    unless self.parent
+      self.volume.address + "/" + self.name
     end
-    self.volume.address + "/" + self.name
+
+    parents = []
+    parent = self.parent
+
+    while parent
+      parents.unshift parent.name
+      parent = parent.parent
+    end
+
+    parents.unshift self.volume.address
+
+    parents.join("/")
   end
 end
