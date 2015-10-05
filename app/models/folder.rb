@@ -41,6 +41,7 @@ class Folder
       parent = parent.parent
     end
 
+    parents.push self.name
     parents.unshift self.volume.address
 
     parents.join("/")
